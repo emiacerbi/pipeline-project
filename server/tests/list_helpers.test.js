@@ -62,7 +62,7 @@ const listWithOneBlog = [
   },
 ]
 
-xdescribe('total likes', () => {
+describe('total likes', () => {
   test('when list has only one blog, equals the likes of that', () => {
     const result = listHelper.totalLikes(listWithOneBlog)
     expect(result).toBe(5)
@@ -74,7 +74,7 @@ xdescribe('total likes', () => {
   })
 })
 
-xdescribe('favorite blog', () => {
+describe('favorite blog', () => {
   test('when list has multiple blogs, gets the blog with most likes', () => {
     const result = listHelper.favoriteBlog(blogs)
     expect(result).toEqual({
@@ -88,7 +88,7 @@ xdescribe('favorite blog', () => {
   })
 })
 
-xdescribe('most blogs', () => {
+describe('most blogs', () => {
   test('should return and object with the author with the most blogs and the amount', () => {
     const result = listHelper.mostBlogs(blogs)
     expect(result).toEqual({
@@ -98,7 +98,7 @@ xdescribe('most blogs', () => {
   })
 })
 
-xdescribe('most likes', () => {
+describe('most likes', () => {
   test('should return and object with the author with most amount of likes combined', () => {
     const result = listHelper.mostLikes(blogs)
     expect(result).toEqual({

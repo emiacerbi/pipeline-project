@@ -8,6 +8,7 @@ on:
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -15,9 +16,7 @@ jobs:
           node-version: '16'
       - name: npm install
         run: npm install
-      # - name: e2e tests
-      #   uses: cypress-io/github-action@v4
-      #   with:
-      #     build: npm run build
-      #     start: npm run start-prod
-      #     wait-on: http://localhost:5001
+      - name: 'Create env file'
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+      - name: jest tests        
+        run: npm run test

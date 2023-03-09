@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const { usersInDb } = require('./test_helper')
@@ -58,4 +59,8 @@ describe('when there is initially one user in db', () => {
     const usersAtEnd = await usersInDb()
     expect(usersAtEnd).toEqual(usersAtStart)
   })
+})
+
+afterAll(() => {
+  mongoose.connection.close()
 })

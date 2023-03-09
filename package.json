@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --open --mode development",
     "server": "NODE_ENV=development nodemon ./server/index.js",
     "build": "webpack --mode production",
-    "test": "NODE_ENV=test jest --verbose --runInBand",
+    "test": "NODE_ENV=test jest --runInBand",
     "integration": "NODE_ENV=test nodemon ./server/index.js",
     "cypress:open": "cypress open"
   },
