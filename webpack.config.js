@@ -1,37 +1,37 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
-  entry: "./client/src/index.js",
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  },
-  resolve: {
-    extensions: ["*", ".js", ".jsx"],
-  },
-  devServer: {
-    historyApiFallback: true,
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: "./client/public/index.html",
-      filename: "./index.html",
-    }),
-  ],
-};
+	entry: './client/src/index.js',
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'bundle.js',
+		publicPath: '/',
+	},
+	module: {
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel-loader',
+				options: { presets: ['@babel/env'] },
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	},
+	resolve: {
+		extensions: ['*', '.js', '.jsx'],
+	},
+	devServer: {
+		historyApiFallback: true,
+	},
+	plugins: [
+		new HtmlWebPackPlugin({
+			template: './client/public/index.html',
+			filename: './index.html',
+		}),
+	],
+}
