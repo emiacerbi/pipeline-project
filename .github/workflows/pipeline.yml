@@ -20,10 +20,9 @@ jobs:
         run: echo "${{ secrets.ENV_FILE }}" > .env
       - name: jest tests        
         run: npm run test
-      # - name: e2e tests
-      #   uses: cypress-io/github-action@v4
-      #   with:
-      #     build: npm run build
-      #     integration: npm run integration
-      #     start: npm run start-prod
-      #     wait-on: http://localhost:3003
+      - name: e2e tests
+        uses: cypress-io/github-action@v4
+        with:
+          build: npm run build
+          start: npm run integration
+          wait-on: http://localhost:3003
