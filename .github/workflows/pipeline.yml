@@ -21,6 +21,8 @@ jobs:
         run: npm install
       - name: 'Create env file'
         run: echo "${{ secrets.ENV_FILE }}" > .env
+      - name: lint
+        run: npm run lint
       - name: jest tests        
         run: npm run test
       - name: e2e tests
