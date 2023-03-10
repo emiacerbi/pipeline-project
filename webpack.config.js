@@ -1,10 +1,13 @@
-
-const path = require("path");
-const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
 
 module.exports = {
   entry: "./client/src/index.js",
-  mode: "development",
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -19,20 +22,16 @@ module.exports = {
       }
     ]
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
-  output: {
-    path: path.resolve(__dirname, "dist/"),
-    publicPath: "/dist/",
-    filename: "bundle.js"
+  resolve: {
+    extensions: ["*", ".js", ".jsx"],
   },
   devServer: {
-    static: path.join(__dirname, 'client/public/'),
-    devMiddleware: {
-      publicPath: '/dist/'
-    },
-    port: 3000,
-    hot: true,
-    liveReload: false,
+    historyApiFallback: true,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./client/public/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
